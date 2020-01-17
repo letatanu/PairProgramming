@@ -3,31 +3,42 @@ package edu.pdx.cs410J;
 import edu.pdx.cs410J.AbstractFlight;
 
 public class Flight extends AbstractFlight {
+  protected int flightNumber;
+  protected String flightSrc,flightDest,arriveTime,departTime;
 
-  public String GetRandomString(){return "Flight class is working";}
+
+  Flight(int FlightNumber, String DepartTime, String ArriveTime, String FlightSrc, String FlightDest){
+    flightNumber = FlightNumber;
+    departTime = DepartTime;
+    arriveTime = ArriveTime;
+    flightSrc = FlightSrc;
+    flightDest = FlightDest;
+  }
+
+  //public String GetRandomString(){return "Flight class is working";}
 
   @Override
   public int getNumber() {
-    return 42;
+    return flightNumber;
   }
 
   @Override
   public String getSource() {
-    throw new UnsupportedOperationException("This method is not implemented yet");
+    return flightSrc;
   }
 
   @Override
   public String getDepartureString() {
-    throw new UnsupportedOperationException("This method is not implemented yet");
+    return departTime;
   }
 
   @Override
   public String getDestination() {
-    throw new UnsupportedOperationException("This method is not implemented yet");
+    return flightDest;
   }
 
   @Override
   public String getArrivalString() {
-    throw new UnsupportedOperationException("This method is not implemented yet");
+    return arriveTime;
   }
 }
