@@ -14,14 +14,31 @@ import static java.lang.System.in;
 public class Project1 {
 
   public static void main(String[] args) {
-    String airline, srcAirport, departTime, dstAirport, arriveTime, userInput;
+    String airlineName, srcAirport, departTime, dstAirport, arriveTime;
     int flightNumber;
+    String printOption,readmeOption;
 
-    
+    airlineName = args[0];
+    flightNumber = Integer.valueOf(args[1]);
+    srcAirport = args[2];
+    departTime = args[3];
+    dstAirport = args[4];
+    arriveTime = args[5];
+    printOption = args[6];
+    readmeOption = args[7];
+
+    Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
+    Airline airline = new Airline(airlineName,flight);
+
+
+    //System.out.println(airline);
 
     for (String arg : args) {
       System.out.println(arg);
+
     }
+
+
     exit(1);
   }
 

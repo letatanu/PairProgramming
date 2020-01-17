@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Airline extends AbstractAirline {
-
+    String flightName;
     ArrayList<Flight> newFilight;
 
-    Airline(Flight flight){
+    Airline(String FlightName ,Flight flight){
+        flightName = FlightName;
         newFilight.add(flight);
     }
 
-
-    public String getRandonValue(){return "Airline class is working\n";}
 
     @Override
     public String getName() {
