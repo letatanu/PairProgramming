@@ -17,35 +17,47 @@ public class Project1 {
   public static void main(String[] args) {
     String airlineName, srcAirport, departTime, dstAirport, arriveTime;
     int flightNumber;
-    String printOption,readmeOption;
+    String printOption, readmeOption;
+    Boolean isDone = true;
 
-airlineName = args[0];
-flightNumber = Integer.valueOf(args[1]);
-srcAirport = args[2];
-departTime = args[3];
-dstAirport = args[4];
-arriveTime = args[5];
-printOption = args[6];
-readmeOption = args[7];
+    while (isDone){
+      try {
+        airlineName = args[0];
+        flightNumber = Integer.valueOf(args[1]);
+        srcAirport = args[2];
+        departTime = args[3];
+        dstAirport = args[4];
+        arriveTime = args[5];
+        printOption = args[6];
+        readmeOption = args[7];
+
+
 
 //Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
-Airline airline = new Airline(airlineName,new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport));
+        Airline airline = new Airline(airlineName, new Flight(flightNumber, departTime, arriveTime, srcAirport, dstAirport));
 
 //System.out.println(airline);
 /*for (String arg : args) {
 System.out.println(arg);
 }*/
 
-    if (printOption.contains("-print"))
-    {
-      /*System.out.println("Enter name of flight that you want to print: ");
-      Scanner scanner = new Scanner(System.in);
-      String userInput = scanner.nextLine();*/
-      airline.getFlights();
+        if (printOption.contains("-print")) {
+          airline.getFlights();
+        }
 
-    }
+        if (readmeOption.contains("README")) {
+            System.out.println("README Printed.");
+        }
+        isDone = false;
 
-    exit(1);
+      } catch (Exception e) {
+        System.out.println("Missing one of the Arguments.");
+        System.out.println(e.getMessage());
+        isDone = false;
+      }
+
+  }
+   exit(1);
   }
 
 }
