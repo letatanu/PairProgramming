@@ -1,4 +1,5 @@
 package edu.pdx.cs410J;
+import java.io.*;
 
 import edu.pdx.cs410J.AbstractAirline;
 
@@ -18,25 +19,28 @@ public class Project1 {
     int flightNumber;
     String printOption,readmeOption;
 
-    airlineName = args[0];
-    flightNumber = Integer.valueOf(args[1]);
-    srcAirport = args[2];
-    departTime = args[3];
-    dstAirport = args[4];
-    arriveTime = args[5];
-    printOption = args[6];
-    readmeOption = args[7];
+airlineName = args[0];
+flightNumber = Integer.valueOf(args[1]);
+srcAirport = args[2];
+departTime = args[3];
+dstAirport = args[4];
+arriveTime = args[5];
+printOption = args[6];
+readmeOption = args[7];
 
-    Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
-    Airline airline = new Airline(airlineName,flight);
+/*Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
+Airline airline = new Airline(airlineName,flight);*/
 
+/*if (printOption == "-print")
+{
+String line;
+System.out.println("Enter name of flight that you want to print: ");
+}*/
 
-    //System.out.println(airline);
-
-    for (String arg : args) {
-      System.out.println(arg);
-
-    }
+//System.out.println(airline);
+for (String arg : args) {
+System.out.println(arg);
+}
 
 
     exit(1);

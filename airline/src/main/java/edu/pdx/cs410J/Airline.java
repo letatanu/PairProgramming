@@ -18,7 +18,7 @@ public class Airline extends AbstractAirline {
     @Override
     public String getName() {
         return null;
-    }
+    };
 
     @Override
     public void addFlight(AbstractFlight abstractFlight) {
