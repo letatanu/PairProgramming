@@ -28,20 +28,22 @@ arriveTime = args[5];
 printOption = args[6];
 readmeOption = args[7];
 
-/*Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
-Airline airline = new Airline(airlineName,flight);*/
-
-/*if (printOption == "-print")
-{
-String line;
-System.out.println("Enter name of flight that you want to print: ");
-}*/
+//Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
+Airline airline = new Airline(airlineName,new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport));
 
 //System.out.println(airline);
-for (String arg : args) {
+/*for (String arg : args) {
 System.out.println(arg);
-}
+}*/
 
+    if (printOption.contains("-print"))
+    {
+      /*System.out.println("Enter name of flight that you want to print: ");
+      Scanner scanner = new Scanner(System.in);
+      String userInput = scanner.nextLine();*/
+      airline.getFlights();
+
+    }
 
     exit(1);
   }
