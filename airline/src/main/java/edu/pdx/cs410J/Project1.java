@@ -41,6 +41,21 @@ public class Project1 {
             }
         }
 
+        //To check the strings format.
+        StringChecker stringChecker = new StringChecker();
+        String dateTimeRetVal = stringChecker.DateTimeFormatChecker(arriveTime,arriveDate,departTime,departDate);
+        String sourceAndDestinationAirportRetVal = stringChecker.SourceDestinationFormatChecker(srcAirport,dstAirport);
+
+        if (dateTimeRetVal != null){
+          System.out.println(dateTimeRetVal);
+          exit(1);
+        }
+
+        if (sourceAndDestinationAirportRetVal != null) {
+          System.out.println(sourceAndDestinationAirportRetVal);
+          exit(1);
+        }
+
         Airline airline = new Airline(airlineName, new Flight(flightNumber, departTime,
                 departDate, arriveTime, arriveDate, srcAirport, dstAirport));
 
