@@ -4,12 +4,14 @@ import edu.pdx.cs410J.AbstractFlight;
 
 public class Flight extends AbstractFlight {
   protected int flightNumber;
-  protected String flightSrc,flightDest,arriveTime,departTime;
+  protected String flightSrc,flightDest,arriveTime,departTime,arriveDate,departDate;
 
 
-  Flight(int FlightNumber, String DepartTime, String ArriveTime, String FlightSrc, String FlightDest){
+  Flight(int FlightNumber, String DepartTime, String DepartDate, String ArriveTime, String ArrivalDate, String FlightSrc, String FlightDest){
     flightNumber = FlightNumber;
     departTime = DepartTime;
+    departDate = DepartDate;
+    arriveDate = ArrivalDate;
     arriveTime = ArriveTime;
     flightSrc = FlightSrc;
     flightDest = FlightDest;

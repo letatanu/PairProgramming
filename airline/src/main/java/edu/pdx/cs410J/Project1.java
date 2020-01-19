@@ -15,31 +15,34 @@ import static java.lang.System.in;
 public class Project1 {
 
   public static void main(String[] args) {
-    String airlineName, srcAirport, departTime, dstAirport, arriveTime;
+    String airlineName, srcAirport, departTime, dstAirport, arriveTime, departDate, arriveDate;
     int flightNumber;
     String printOption, readmeOption;
-    Boolean isDone = true;
 
-    while (isDone){
       try {
         airlineName = args[0];
         flightNumber = Integer.valueOf(args[1]);
         srcAirport = args[2];
         departTime = args[3];
-        dstAirport = args[4];
-        arriveTime = args[5];
-        printOption = args[6];
-        readmeOption = args[7];
+        departDate = args[4];
+        dstAirport = args[5];
+        arriveTime = args[6];
+        arriveDate = args[7];
+        printOption = args[8];
+        readmeOption = args[9];
 
+        //To check If we have too many arguments.
+        int i=0;
+        for (String arg : args) {
+          i+=1;
+            if (i>10){
+              System.out.println("Too many Arguments. If one of the arguments contains more than word, wrap it with quotations. Program terminated");
+              exit(1);
+            }
+        }
 
-
-//Flight flight = new Flight(flightNumber,departTime,arriveTime,srcAirport,dstAirport);
-        Airline airline = new Airline(airlineName, new Flight(flightNumber, departTime, arriveTime, srcAirport, dstAirport));
-
-//System.out.println(airline);
-/*for (String arg : args) {
-System.out.println(arg);
-}*/
+        Airline airline = new Airline(airlineName, new Flight(flightNumber, departTime,
+                departDate, arriveTime, arriveDate, srcAirport, dstAirport));
 
         if (printOption.contains("-print")) {
           airline.getFlights();
@@ -48,16 +51,12 @@ System.out.println(arg);
         if (readmeOption.contains("README")) {
             System.out.println("README Printed.");
         }
-        isDone = false;
 
       } catch (Exception e) {
-        System.out.println("Missing one of the Arguments.");
-        System.out.println(e.getMessage());
-        isDone = false;
+        if (e.getMessage().contains("out of bounds"))
+          System.out.println("Missing one or more of the Arguments. Program terminated.");
       }
 
-  }
    exit(1);
   }
-
 }

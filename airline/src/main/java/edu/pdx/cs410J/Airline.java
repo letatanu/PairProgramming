@@ -31,11 +31,14 @@ public class Airline extends AbstractAirline {
     @Override
     public Collection getFlights() {
         for (Flight f: newflight){
+            System.out.println("\n");
             System.out.println("Airline Name: " +flightName);
             System.out.println("Source Airport: " +f.flightSrc);
-            System.out.println("Departure Time/Date: " +f.departTime);
-            System.out.println("Arrival Airport " +f.flightDest);
-            System.out.println("Arrival Time/Date: " +f.arriveTime);
+            System.out.println("Departure Time: " +f.departTime);
+            System.out.println("Departure Date: "+ f.departDate);
+            System.out.println("Arrival Airport: " +f.flightDest);
+            System.out.println("Arrival Time: " +f.arriveTime);
+            System.out.println("Arrival Date: " + f.arriveDate);
         }
         return null;
     }
