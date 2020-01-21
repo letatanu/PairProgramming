@@ -67,5 +67,10 @@ public class FlightTest {
     Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
     assertTrue(flight.arriveTime.contains(":"));
   }
-  
+
+  @Test
+  public void CheckThatDepartureDateWrittenCorrectlyWithForwardSlash(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertEquals(StringChecker.CheckDateTimeFormat(0,flight.departDate),2);
+  }
 }

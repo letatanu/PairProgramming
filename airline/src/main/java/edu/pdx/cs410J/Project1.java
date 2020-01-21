@@ -43,9 +43,8 @@ public class Project1 {
 
 
         //To check the strings format.
-        StringChecker stringChecker = new StringChecker();
-        String dateTimeRetVal = stringChecker.DateTimeFormatChecker(arriveTime,arriveDate,departTime,departDate);
-        String sourceAndDestinationAirportRetVal = stringChecker.SourceDestinationFormatChecker(srcAirport,dstAirport);
+        String dateTimeRetVal = StringChecker.DateTimeFormatChecker(arriveTime,arriveDate,departTime,departDate);
+        String sourceAndDestinationAirportRetVal = StringChecker.SourceDestinationFormatChecker(srcAirport,dstAirport);
 
         if (dateTimeRetVal != null){
           System.out.println(dateTimeRetVal);
