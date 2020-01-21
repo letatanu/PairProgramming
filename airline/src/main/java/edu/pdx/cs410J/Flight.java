@@ -1,4 +1,4 @@
-package edu.pdx.cs410J;
+package edu.pdx.cs410J;;
 
 import edu.pdx.cs410J.AbstractFlight;
 

@@ -1,39 +1,71 @@
 package edu.pdx.cs410J;
 
 import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
 
+import static junit.framework.TestCase.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import org.junit.runner.JUnitCore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 
 /**
  * Unit tests for the {@link Flight} class.
  */
-@RunWith(Suite.class)
 public class FlightTest {
   
-  @Test(expected = UnsupportedOperationException.class)
+  @Test()
   public void getArrivalStringNeedsToBeImplemented() {
     Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
     flight.getArrivalString();
-    /*assertNotNull(flight.getArrivalString());*/
-  }
-
-  @Test
-  public void initiallyAllFlightsHaveTheSameNumber() {
-   //Flight flight = new Flight();
-    //assertThat(flight.getNumber(), equalTo(42));
+    assertNotNull(flight.getArrivalString());
   }
 
   @Test
   public void forProject1ItIsOkayIfGetDepartureTimeReturnsNull() {
-    //Flight flight = new Flight();
-    //assertThat(flight.getDeparture(), is(nullValue()));
+    Flight flight = new Flight(1234,null,"12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertThat(flight.getDepartureString(), is(nullValue()));
+  }
+
+  @Test
+  public void forProject1ItsOkayIfGetArribalTimeReturnsNull() {
+    Flight flight = new Flight(1234,"12:03","12/01/2020",null,"12//01/2020","pdx","lax");
+    assertThat(flight.getArrivalString(), is(nullValue()));
+  }
+
+  @Test
+  public void WeShouldOnlyGet3LetterSourceAirportCode(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertEquals(flight.flightSrc.length(), 3);
+  }
+
+  @Test
+  public void WeShouldOnlyGet3LetterDestinationAirportCode(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertEquals(flight.flightDest.length(), 3);
+  }
+
+  @Test
+  public void CheckDepartDateStringFormat(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertTrue(flight.departDate.contains("/"));
+  }
+
+  @Test
+  public void CheckArrivalDateStringFormat(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertTrue(flight.arriveDate.contains("/"));
+  }
+
+  @Test
+  public void CheckDepartTimeStringFormat(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertTrue(flight.departTime.contains(":"));
+  }
+
+  @Test
+  public void CheckArrivalTimeStringFormat(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
+    assertTrue(flight.arriveTime.contains(":"));
   }
   
 }
