@@ -1,20 +1,11 @@
 package edu.pdx.cs410J;
 
 import org.junit.Test;
-import static org.junit.Assert.assertNotNull;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import org.junit.runner.JUnitCore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 
 /**
  * Unit tests for the {@link Flight} class.
  */
-@RunWith(Suite.class)
 public class FlightTest {
   
   @Test(expected = UnsupportedOperationException.class)
