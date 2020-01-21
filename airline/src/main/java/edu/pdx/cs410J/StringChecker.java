@@ -36,6 +36,7 @@ public class StringChecker {
     //Method that digs deeper into the format of date and time.
     //The Flag param will determine if the user wants to verify Date or Time. 0 is for Date and 1 is for time.
     //The DateOtTime string is a place holder variable for date or time.
+    //TODO: Try to check that the / and : are occurring on the right spots.
     public static int CheckDateTimeFormat(int Flag, String DateOrTime){
         int retVal = 0;
 

@@ -69,8 +69,27 @@ public class FlightTest {
   }
 
   @Test
-  public void CheckThatDepartureDateWrittenCorrectlyWithForwardSlash(){
+  public void CheckThatDepartureDateWrittenCorrectlyWithTwoForwardSlashs(){
     Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12//01/2020","pdx","lax");
     assertEquals(StringChecker.CheckDateTimeFormat(0,flight.departDate),2);
   }
+
+  @Test
+  public void CheckThatArrivalDateWrittedCorrectlyWithTwoForwardSlashes(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12/01/2020","pdx","lax");
+    assertEquals(StringChecker.CheckDateTimeFormat(0,flight.arriveDate),2);
+  }
+
+  @Test
+  public void CheckThatDepartureTimeWrittenCorrectlyWithOneColon(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12/01/2020","pdx","lax");
+    assertEquals(StringChecker.CheckDateTimeFormat(1,flight.departTime),1);
+  }
+
+  @Test
+  public void CheckThatArrivalTimeWrittenCorrectlyWithOneColon(){
+    Flight flight = new Flight(1234,"12:03","12/01/2020","2:03","12/01/2020","pdx","lax");
+    assertEquals(StringChecker.CheckDateTimeFormat(1,flight.arriveTime),1);
+  }
+
 }
