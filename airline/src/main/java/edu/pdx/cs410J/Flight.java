@@ -17,8 +17,6 @@ public class Flight extends AbstractFlight {
     flightDest = FlightDest;
   }
 
-  //public String GetRandomString(){return "Flight class is working";}
-
   @Override
   public int getNumber() {
     return flightNumber;

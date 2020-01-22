@@ -57,8 +57,9 @@ public class Project1 {
             readmeOption = "";
           }
 
+          //If the README flag is enabled.
       if (flag2 == 1){
-        System.out.println("README");
+        Utilities.ReadmePrint();
         flag1 = 0;
         exit(1);
       }
@@ -90,14 +91,13 @@ public class Project1 {
         Airline airline = new Airline(airlineName, new Flight(flightNumber, departTime,
                 departDate, arriveTime, arriveDate, srcAirport, dstAirport));
 
-
         if (flag1 == 1) {
           airline.getFlights();
         }
-        
+
       } catch (Exception e) {
         if (e.getMessage().contains("out of bounds"))
-          System.out.println("Missing command line arguments");
+          System.err.println("Missing command line arguments");
       }
 
    exit(1);
