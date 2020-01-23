@@ -28,18 +28,16 @@ public class Student extends Human {
    *        The PairProgrammingProject's gender ("male" or "female", or "other", case insensitive)
    */
   
-  public Student(String name, ArrayList<String> classes, double gpa, String gender) {
+  public Student(String name, ArrayList<String> classes, double gpa, String gender) throws IllegalArgumentException{
     super(name);
-  }{
-
   }
 
   /**                                                                               
    * All students say "This class is too much work"
    */
   @Override
-  public String says() {                                                            
-    throw new UnsupportedOperationException("Not implemented yet");
+  public String says() {
+    return "This class is too much work";
   }
                                                                                     
   /**                                                                               
