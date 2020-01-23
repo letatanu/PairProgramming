@@ -3,7 +3,8 @@ package edu.pdx.cs410J.haider3;
 import edu.pdx.cs410J.lang.Human;
 
 import java.util.ArrayList;
-                                                                                    
+import java.util.Arrays;
+
 /**                                                                                 
  * This class is represents a <code>Student</code>.                                 
  */                                                                                 
@@ -15,9 +16,6 @@ public class Student extends Human {
   private final double gpa;
   private final String gender;
 
-  enum Gender{
-    male, female, other;
-  }
   /**                                                                               
    * Creates a new <code>Student</code>                                             
    *                                                                                
@@ -39,14 +37,12 @@ public class Student extends Human {
     if (gpa < 0 || gpa > 4)
     {
       throw new IllegalArgumentException(" 0 <= GPA <= 4 ");
-      System.exit(1);
     }
-    gpa = gpa;
-    if (Gender.valueOf(gender) != Gender.male || Gender.valueOf(gender) != Gender.female || Gender.valueOf(gender) != Gender.other ){
-      throw new IllegalArgumentException("Gender value is invalie.");
-      System.exit(1);
+    this.gpa = gpa;
+    if (!gender.contains("male") && !gender.equals("female") && !gender.equals("other")){
+      throw new IllegalArgumentException("Gender value is invalid.");
     }
-    gender = gender;
+    this.gender = gender;
   }
 
   /**                                                                               
@@ -66,9 +62,8 @@ public class Student extends Human {
     for(String clss: this.studentClasses) {
       courses  += clss + "; ";
     }
-    String description = "Student: "+ studentName + " with gpa " + gpa +
-                             " gender "+ gender + "courses: \n" + courses;
-    return description;
+    return "Student: "+ studentName + " with gpa " + gpa +
+                             " gender: "+ gender + " courses: \n" + courses;
   }
 
   /**
@@ -86,9 +81,10 @@ public class Student extends Human {
     String gender = args[2];
     String classes = args[3];
 
-    List<String> al = new ArrayList<String>(Arrays.asList(classes.split(" ")));
+    ArrayList<String> al = new ArrayList<String>(Arrays.asList(classes.split(" ")));
 
     Student st = new Student(name,al,gpa,gender);
+    System.out.println(st.toString());
 
   }
 }
