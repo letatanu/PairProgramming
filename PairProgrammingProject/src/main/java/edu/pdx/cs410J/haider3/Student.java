@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Student extends Human {
 
   String studentName;
-  List<String> studentClasses = new ArrayList<String>();
+  ArrayList<String> studentClasses = new ArrayList<String>();
 
   private final double gpa;
   private final String gender;
@@ -30,6 +30,15 @@ public class Student extends Human {
   
   public Student(String name, ArrayList<String> classes, double gpa, String gender) throws IllegalArgumentException{
     super(name);
+    studentName = name;
+    this.studentClasses = classes;
+    if (gpa < 0 || gpa > 4)
+    {
+      throw new IllegalArgumentException(" 0 <= GPA <= 4 ");
+      exit(1);
+    }
+    gpa = gpa;
+    gender = gender;
   }
 
   /**                                                                               
