@@ -85,6 +85,6 @@ public class Student extends Human {
 
     Student st = new Student(name,al,gpa,gender);
     System.out.println(st.toString());
-
+    System.exit(0);
   }
 }
