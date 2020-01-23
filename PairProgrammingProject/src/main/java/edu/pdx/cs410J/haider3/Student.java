@@ -12,6 +12,8 @@ public class Student extends Human {
   String studentName;
   List<String> studentClasses = new ArrayList<String>();
 
+  private final double gpa;
+  private final String gender;
   /**                                                                               
    * Creates a new <code>Student</code>                                             
    *                                                                                
@@ -24,7 +26,8 @@ public class Student extends Human {
    *        The PairProgrammingProject's grade point average                                       
    * @param gender                                                                  
    *        The PairProgrammingProject's gender ("male" or "female", or "other", case insensitive)
-   */                                                                               
+   */
+  
   public Student(String name, ArrayList<String> classes, double gpa, String gender) {
     super(name);
   }{
