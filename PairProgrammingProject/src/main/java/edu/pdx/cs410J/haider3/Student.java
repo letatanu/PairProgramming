@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Student extends Human {
 
   String studentName;
-  List<String> studentClasses = new ArrayList<String>();
+  ArrayList<String> studentClasses = new ArrayList<String>();
 
   private final double gpa;
   private final String gender;
@@ -28,9 +28,8 @@ public class Student extends Human {
    *        The PairProgrammingProject's gender ("male" or "female", or "other", case insensitive)
    */
   
-  public Student(String name, ArrayList<String> classes, double gpa, String gender) {
+  public Student(String name, ArrayList<String> classes, double gpa, String gender) throws IllegalArgumentException{
     super(name);
-  }throws IllegalArgumentException{
     studentName = name;
     this.studentClasses = classes;
     if (gpa < 0 || gpa > 4)
@@ -46,8 +45,8 @@ public class Student extends Human {
    * All students say "This class is too much work"
    */
   @Override
-  public String says() {                                                            
-    throw new UnsupportedOperationException("Not implemented yet");
+  public String says() {
+    return "This class is too much work";
   }
                                                                                     
   /**                                                                               
