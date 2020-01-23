@@ -30,8 +30,16 @@ public class Student extends Human {
   
   public Student(String name, ArrayList<String> classes, double gpa, String gender) {
     super(name);
-  }{
-
+  }throws IllegalArgumentException{
+    studentName = name;
+    this.studentClasses = classes;
+    if (gpa < 0 || gpa > 4)
+    {
+      throw new IllegalArgumentException(" 0 <= GPA <= 4 ");
+      exit(1);
+    }
+    gpa = gpa;
+    gender = gender;
   }
 
   /**                                                                               
