@@ -69,7 +69,15 @@ public class Student extends Human {
    * standard out by invoking its <code>toString</code> method.
    */
   public static void main(String[] args) {
-    System.err.println("Missing command line arguments");
-    System.exit(1);
+    if (args.length < 3) {
+      System.err.println("The number of arguments need to be at least 3");
+      System.exit(1);
+    }
+    String name = args[0];
+    double gpa = Double.parseDouble(args[1]);
+    String gender = args[2];
+    String classes = args[3];
+    List<String> al = new ArrayList<String>();
+    al = Arrays.asList(classes.split(" "));
   }
 }
