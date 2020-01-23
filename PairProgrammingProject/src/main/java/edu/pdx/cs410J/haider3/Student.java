@@ -54,7 +54,13 @@ public class Student extends Human {
    * <code>Student</code>.                                                          
    */                                                                               
   public String toString() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    String courses = "";
+    for(String clss: this.studentClasses) {
+      courses  += clss + "; ";
+    }
+    String description = "Student: "+ studentName + " with gpa " + gpa +
+                             " gender "+ gender + "courses: \n" + courses;
+    return description;
   }
 
   /**
