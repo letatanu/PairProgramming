@@ -14,6 +14,10 @@ public class Student extends Human {
 
   private final double gpa;
   private final String gender;
+
+  enum Gender{
+    male, female, other;
+  }
   /**                                                                               
    * Creates a new <code>Student</code>                                             
    *                                                                                
@@ -35,9 +39,13 @@ public class Student extends Human {
     if (gpa < 0 || gpa > 4)
     {
       throw new IllegalArgumentException(" 0 <= GPA <= 4 ");
-      exit(1);
+      System.exit(1);
     }
     gpa = gpa;
+    if (Gender.valueOf(gender) != Gender.male || Gender.valueOf(gender) != Gender.female || Gender.valueOf(gender) != Gender.other ){
+      throw new IllegalArgumentException("Gender value is invalie.");
+      System.exit(1);
+    }
     gender = gender;
   }
 
@@ -77,7 +85,10 @@ public class Student extends Human {
     double gpa = Double.parseDouble(args[1]);
     String gender = args[2];
     String classes = args[3];
-    List<String> al = new ArrayList<String>();
-    al = Arrays.asList(classes.split(" "));
+
+    List<String> al = new ArrayList<String>(Arrays.asList(classes.split(" ")));
+
+    Student st = new Student(name,al,gpa,gender);
+
   }
 }
